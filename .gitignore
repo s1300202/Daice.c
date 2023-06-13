@@ -2,28 +2,44 @@
 #include <stdlib.h>
 #include <time.h>
 
-int roll_dice() {
-    return rand() % 6 + 1;
+int rollDice() {
+return (rand() %6) + 1;
 }
 
-int main() {
-    srand(time(0));
+void dice Game(){
+int die1, die2, total;
 
-    printf("Rolling dice...\n");
+printf("Rolling dice...\n");
+die1 = rollDice();
+die2 = rollDice();
+total = die1 + die2;
 
-    int die1 = roll_dice();
-    int die2 = roll_dice();
-    int total = die1 + die2;
+printf("Die 1: %d\n", die1);
+printf("Die2: %d\n", die2);
+printf("Total value: %d\n", total);
 
-    printf("Die 1: %d\n", die1);
-    printf("Die 2: %d\n", die2);
-    printf("Total value: %d\n", total);
+if(total > 7){
+printf("You won!\n");
+}
+else{
+printf("You lost.\n");
+}
+}
 
-    if (total > 7) {
-        printf("You won!\n");
-    } else {
-        printf("You lost!\n");
-    }
+void greetUser(){
+char name[100];
 
-    return 0;
+printf("What is your name?\n> ");
+scanf("%s", name);
+
+printf("Hello, %s!\n", name);
+}
+
+int main(){
+srand(time(0));
+
+greetUser();
+diceGame();
+
+return 0;
 }
