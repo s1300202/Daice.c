@@ -1,52 +1,29 @@
-# Prerequisites
-*.d
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+int roll_dice() {
+    return rand() % 6 + 1;
+}
 
-# Linker output
-*.ilk
-*.map
-*.exp
+int main() {
+    srand(time(0));
 
-# Precompiled Headers
-*.gch
-*.pch
+    printf("Rolling dice...\n");
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+    int die1 = roll_dice();
+    int die2 = roll_dice();
+    int total = die1 + die2;
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+    printf("Die 1: %d\n", die1);
+    printf("Die 2: %d\n", die2);
+    printf("Total value: %d\n", total);
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+    if (total > 7) {
+        printf("You won!\n");
+    } else {
+        printf("You lost!\n");
+    }
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+    return 0;
+}
